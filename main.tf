@@ -15,6 +15,7 @@ provider "aws" {
 
 # Create VPCs
 resource "aws_vpc" "sap-nprod-vpc" {
+  name        = "sap-nprod-vpc"
   cidr_block = "10.0.0.0/16"
   enable_dns_support = true
   enable_dns_hostnames = true
@@ -22,6 +23,7 @@ resource "aws_vpc" "sap-nprod-vpc" {
 
 # Create private subnets in sap-nprod-vpc
 resource "aws_subnet" "private_subnet1a" {
+  name        = "private_subnet1a"
   vpc_id                  = aws_vpc.sap-nprod-vpc.id
   cidr_block              = "10.0.1.0/24"
   availability_zone       = "us-east-1a"
@@ -29,6 +31,7 @@ resource "aws_subnet" "private_subnet1a" {
 }
 
 resource "aws_subnet" "private_subnet1b" {
+  name        = "private_subnet1b"
   vpc_id                  = aws_vpc.sap-nprod-vpc.id
   cidr_block              = "10.0.2.0/24"
   availability_zone       = "us-east-1b"
@@ -54,6 +57,7 @@ resource "aws_security_group_rule" "sg_sap-nprod-vpc_private_inbound" {
 
 # Create route table for VPC1 private subnets
 resource "aws_route_table" "rt_sap-nprod-vpc_private" {
+  name        = "rt_sap-nprod-vpc_private"
   vpc_id = aws_vpc.sap-nprod-vpc.id
 }
 
