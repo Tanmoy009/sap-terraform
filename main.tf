@@ -34,7 +34,7 @@ resource "aws_subnet" "private_subnet1a" {
 
   tags = {
     terraform = "true"
-    Name = "private_subnet1a"
+    Name = "app_db_subnet1a"
   }
 }
 
@@ -46,7 +46,7 @@ resource "aws_subnet" "private_subnet1b" {
 
   tags = {
     terraform = "true"
-    Name = "private_subnet1b"
+    Name = "app_db_subnet1b"
   }
 }
 
@@ -57,7 +57,7 @@ resource "aws_security_group" "sg_sap-nprod-vpc_private" {
 
   tags = {
     terraform = "true"
-    Name = "sg_sap-nprod-vpc_private"
+    Name = "app_db_sg"
   }
 }
 
@@ -77,7 +77,7 @@ resource "aws_route_table" "rt_sap-nprod-vpc_private" {
 
   tags = {
     terraform = "true"
-    Name = "rt_sap-nprod-vpc_private"
+    Name = "sap_app_db_rt"
   }
 }
 
